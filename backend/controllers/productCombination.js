@@ -31,6 +31,7 @@ export const addProductCombination = async (req, res) => {
       length,
       thickness,
     } = req.body;
+    console.log("product: ", req.body);
 
     const existingCombination = await ProductCombination.findOne({
       product,
@@ -56,6 +57,7 @@ export const addProductCombination = async (req, res) => {
     });
     await newCombination.save();
 
+    console.log("grades", grades);
     return res.send({
       success: true,
       message: "Product combination added successfully",
